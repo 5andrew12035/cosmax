@@ -50,9 +50,11 @@ def find_matches(df: pd.DataFrame, query: str) -> pd.DataFrame:
     q = normalize(query)
     if not q:
         return df.iloc[0:0]
-    mask = df["name"].apply(normalize).str.contains(q, na=False) | df["inci"].apply(
-        normalize
-    ).str.contains(q, na=False)
+    mask = (
+        df["name"].apply(normalize).str.contains(q, na=False)
+        | df["inci"].apply(normalize).str.contains(q, na=False)
+        | df["aliases"].fillna("").apply(normalize).str.contains(q, na=False)
+    )
     return df[mask]
 
 
