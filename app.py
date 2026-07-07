@@ -33,7 +33,7 @@ STATUS_COLOR = {
 # ----------------------------------------------------------------------------
 @st.cache_data
 def load_data(path: Path) -> pd.DataFrame:
-    df = pd.read_csv(path)
+    df = pd.read_csv(path, encoding="utf-8-sig")
     df["allergen"] = df["allergen"].astype(str).str.lower().isin(["true", "1", "yes"])
     return df
 

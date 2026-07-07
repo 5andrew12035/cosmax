@@ -1,4 +1,4 @@
-name,inci,category,allergen,KR_status,KR_limit,KR_note,EU_status,EU_limit,EU_note,CN_status,CN_limit,CN_note,US_status,US_limit,US_note
+﻿name,inci,category,allergen,KR_status,KR_limit,KR_note,EU_status,EU_limit,EU_note,CN_status,CN_limit,CN_note,US_status,US_limit,US_note
 "세틸알코올","CETYL ALCOHOL","에몰리언트/왁스알코올","false","safe","제한없음","규정 없음","safe","제한없음","규정 없음","safe","제한없음","규정 없음","safe","제한없음","규정 없음"
 "스테아릭애씨드","STEARIC ACID","유화제/왁스","false","safe","제한없음","규정 없음","safe","제한없음","규정 없음","safe","제한없음","규정 없음","safe","제한없음","규정 없음"
 "시어버터","BUTYROSPERMUM PARKII (SHEA) BUTTER","식물성오일/보습","false","safe","제한없음","규정 없음","safe","제한없음","규정 없음","safe","제한없음","규정 없음","safe","제한없음","규정 없음"
