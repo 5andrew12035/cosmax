@@ -72,7 +72,7 @@ st.markdown(
 
     .block-container{
         max-width: 820px;
-        padding-top: 2rem;
+        padding-top: 3.5rem;
         padding-bottom: 4rem;
     }
 
@@ -220,9 +220,24 @@ st.markdown(
     }
 
     .if-empty{
-        margin-top:40px;
+        margin-top:32px;
         text-align:center;
         color:#5A6E6B;
+    }
+    .if-empty-icon{
+        width:64px;
+        height:64px;
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin:0 auto 18px auto;
+    }
+    .if-empty-icon.default{ background:#E1F5F3; }
+    .if-empty-icon.warn{ background:#FEF0D9; }
+    .if-empty p{
+        font-size:15px;
+        line-height:1.7;
     }
 
     div.stButton > button{
@@ -418,6 +433,14 @@ if selected_row is None:
         st.markdown(
             f"""
             <div class="if-empty">
+                <div class="if-empty-icon warn">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        <line x1="8" y1="8" x2="14" y2="14"/>
+                        <line x1="14" y1="8" x2="8" y2="14"/>
+                    </svg>
+                </div>
                 <p>"{st.session_state.query}"에 대한 검색 결과가 없습니다.<br>
                 원료명 또는 INCI명을 다시 확인해 주세요.</p>
             </div>
@@ -428,6 +451,13 @@ if selected_row is None:
         st.markdown(
             """
             <div class="if-empty">
+                <div class="if-empty-icon default">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0EA5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 2h6"/>
+                        <path d="M10 2v6.34a2 2 0 0 1-.4 1.2L4.14 18.6A2 2 0 0 0 5.7 22h12.6a2 2 0 0 0 1.56-3.4l-5.46-9.06a2 2 0 0 1-.4-1.2V2"/>
+                        <path d="M6.5 15h11"/>
+                    </svg>
+                </div>
                 <p>원료명을 입력하면 결과가 여기에 표시됩니다.</p>
             </div>
             """,
