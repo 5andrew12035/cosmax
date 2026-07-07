@@ -237,7 +237,131 @@ st.markdown(
         color:#fff;
         border-color:#0EA5A4;
     }
+
+    .bg-molecule{
+        position:fixed;
+        inset:0;
+        z-index:-1;
+        overflow:hidden;
+        pointer-events:none;
+    }
+    .bg-molecule svg{ position:absolute; }
+    .bg-molecule .mol-a{ bottom:-20%; right:-14%; width:34%; min-width:250px; opacity:0.75; }
+    .bg-molecule .mol-b{ bottom:-10%; left:-12%; width:38%; min-width:280px; opacity:0.75; }
+    @media (max-width:700px){
+        .bg-molecule .mol-a{ width:44%; bottom:-16%; right:-16%; }
+        .bg-molecule .mol-b{ display:none; }
+    }
+
+    div[data-testid="stTextInput"] div[data-baseweb="input"]{
+        border-radius:16px;
+        border:1.5px solid rgba(14,165,164,0.3);
+        box-shadow: 0 1px 2px rgba(27,46,44,0.04), 0 6px 20px rgba(27,46,44,0.05);
+    }
+    div[data-testid="stTextInput"] div[data-baseweb="input"]:focus-within{
+        border-color:#0EA5A4;
+        box-shadow:0 0 0 4px #E1F5F3;
+    }
+    div[data-testid="stTextInput"] input{
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%235A6E6B' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+        background-repeat:no-repeat;
+        background-position:16px center;
+        padding-left:44px !important;
+    }
     </style>
+
+    <div class="bg-molecule" aria-hidden="true">
+      <svg class="mol-a" viewBox="0 0 440 380" fill="none">
+        <defs>
+          <radialGradient id="carbonA" cx="32%" cy="26%" r="72%">
+            <stop offset="0%" stop-color="#6E6E6E"/>
+            <stop offset="55%" stop-color="#2B2B2B"/>
+            <stop offset="100%" stop-color="#0B0B0B"/>
+          </radialGradient>
+          <radialGradient id="oxygenA" cx="32%" cy="26%" r="72%">
+            <stop offset="0%" stop-color="#EA8B84"/>
+            <stop offset="55%" stop-color="#C23B2E"/>
+            <stop offset="100%" stop-color="#711E15"/>
+          </radialGradient>
+          <radialGradient id="hydrogenA" cx="32%" cy="26%" r="72%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="60%" stop-color="#EEF0F1"/>
+            <stop offset="100%" stop-color="#C9CDD0"/>
+          </radialGradient>
+          <linearGradient id="rodA" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D8DADC"/>
+            <stop offset="100%" stop-color="#6D7275"/>
+          </linearGradient>
+          <filter id="shadowA" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1A1A1A" flood-opacity="0.35"/>
+          </filter>
+        </defs>
+        <g filter="url(#shadowA)">
+          <g stroke="url(#rodA)" stroke-width="6" stroke-linecap="round">
+            <line x1="90" y1="120" x2="170" y2="70"/>
+            <line x1="170" y1="70" x2="250" y2="120"/>
+            <line x1="250" y1="120" x2="250" y2="210"/>
+            <line x1="250" y1="210" x2="170" y2="260"/>
+            <line x1="170" y1="260" x2="90" y2="210"/>
+            <line x1="90" y1="210" x2="90" y2="120"/>
+            <line x1="250" y1="120" x2="330" y2="80"/>
+            <line x1="250" y1="210" x2="335" y2="245"/>
+            <line x1="170" y1="260" x2="180" y2="345"/>
+          </g>
+          <circle cx="90" cy="120" r="14" fill="url(#hydrogenA)" stroke="#B9BEC2" stroke-width="1.5"/>
+          <circle cx="170" cy="70" r="19" fill="url(#oxygenA)"/>
+          <circle cx="250" cy="120" r="16" fill="url(#carbonA)"/>
+          <circle cx="250" cy="210" r="16" fill="url(#carbonA)"/>
+          <circle cx="170" cy="260" r="19" fill="url(#oxygenA)"/>
+          <circle cx="90" cy="210" r="14" fill="url(#hydrogenA)" stroke="#B9BEC2" stroke-width="1.5"/>
+          <circle cx="330" cy="80" r="12" fill="url(#hydrogenA)" stroke="#B9BEC2" stroke-width="1.5"/>
+          <circle cx="335" cy="245" r="14" fill="url(#oxygenA)"/>
+          <circle cx="180" cy="345" r="12" fill="url(#hydrogenA)" stroke="#B9BEC2" stroke-width="1.5"/>
+        </g>
+      </svg>
+      <svg class="mol-b" viewBox="0 0 360 320" fill="none">
+        <defs>
+          <radialGradient id="carbonB" cx="32%" cy="26%" r="72%">
+            <stop offset="0%" stop-color="#6E6E6E"/>
+            <stop offset="55%" stop-color="#2B2B2B"/>
+            <stop offset="100%" stop-color="#0B0B0B"/>
+          </radialGradient>
+          <radialGradient id="oxygenB" cx="32%" cy="26%" r="72%">
+            <stop offset="0%" stop-color="#EA8B84"/>
+            <stop offset="55%" stop-color="#C23B2E"/>
+            <stop offset="100%" stop-color="#711E15"/>
+          </radialGradient>
+          <radialGradient id="hydrogenB" cx="32%" cy="26%" r="72%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="60%" stop-color="#EEF0F1"/>
+            <stop offset="100%" stop-color="#C9CDD0"/>
+          </radialGradient>
+          <linearGradient id="rodB" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D8DADC"/>
+            <stop offset="100%" stop-color="#6D7275"/>
+          </linearGradient>
+          <filter id="shadowB" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1A1A1A" flood-opacity="0.35"/>
+          </filter>
+        </defs>
+        <g filter="url(#shadowB)">
+          <g stroke="url(#rodB)" stroke-width="6" stroke-linecap="round">
+            <line x1="60" y1="90" x2="140" y2="60"/>
+            <line x1="140" y1="60" x2="200" y2="120"/>
+            <line x1="200" y1="120" x2="180" y2="200"/>
+            <line x1="180" y1="200" x2="100" y2="220"/>
+            <line x1="100" y1="220" x2="60" y2="90"/>
+            <line x1="200" y1="120" x2="280" y2="100"/>
+          </g>
+          <circle cx="60" cy="90" r="13" fill="url(#hydrogenB)" stroke="#B9BEC2" stroke-width="1.5"/>
+          <circle cx="140" cy="60" r="18" fill="url(#oxygenB)"/>
+          <circle cx="200" cy="120" r="15" fill="url(#carbonB)"/>
+          <circle cx="180" cy="200" r="13" fill="url(#hydrogenB)" stroke="#B9BEC2" stroke-width="1.5"/>
+          <circle cx="100" cy="220" r="18" fill="url(#oxygenB)"/>
+          <circle cx="280" cy="100" r="13" fill="url(#hydrogenB)" stroke="#B9BEC2" stroke-width="1.5"/>
+        </g>
+      </svg>
+    </div>
     """,
     unsafe_allow_html=True,
 )
