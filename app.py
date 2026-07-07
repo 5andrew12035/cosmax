@@ -238,19 +238,33 @@ st.markdown(
         border-color:#0EA5A4;
     }
 
-    .bg-molecule{
-        position:fixed;
-        inset:0;
-        z-index:-1;
-        overflow:hidden;
-        pointer-events:none;
+    [data-testid="stAppViewContainer"] > .main{
+        position:relative;
     }
-    .bg-molecule svg{ position:absolute; }
-    .bg-molecule .mol-a{ bottom:-20%; right:-14%; width:34%; min-width:250px; opacity:0.75; }
-    .bg-molecule .mol-b{ bottom:-10%; left:-12%; width:38%; min-width:280px; opacity:0.75; }
+    [data-testid="stAppViewContainer"] > .main::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        z-index:0;
+        pointer-events:none;
+        background-repeat:no-repeat, no-repeat;
+        background-position: right -60px bottom -60px, left -60px bottom -40px;
+        background-size: clamp(220px,34vw,420px) auto, clamp(240px,38vw,460px) auto;
+        opacity:0.75;
+        background-image:
+            url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgMzgwIiBmaWxsPSJub25lIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iY2FyYm9uQSIgY3g9IjMyJSIgY3k9IjI2JSIgcj0iNzIlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzZFNkU2RSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjU1JSIgc3RvcC1jb2xvcj0iIzJCMkIyQiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwQjBCMEIiLz4KICAgIDwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9Im94eWdlbkEiIGN4PSIzMiUiIGN5PSIyNiUiIHI9IjcyJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNFQThCODQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiNDMjNCMkUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNzExRTE1Ii8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJoeWRyb2dlbkEiIGN4PSIzMiUiIGN5PSIyNiUiIHI9IjcyJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGRkZGRkYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI2MCUiIHN0b3AtY29sb3I9IiNFRUYwRjEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjQzlDREQwIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyb2RBIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0Q4REFEQyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2RDcyNzUiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8ZmlsdGVyIGlkPSJzaGFkb3dBIiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjYiIHN0ZERldmlhdGlvbj0iOCIgZmxvb2QtY29sb3I9IiMxQTFBMUEiIGZsb29kLW9wYWNpdHk9IjAuMzUiLz4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8ZyBmaWx0ZXI9InVybCgjc2hhZG93QSkiPgogICAgPGcgc3Ryb2tlPSJ1cmwoI3JvZEEpIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+CiAgICAgIDxsaW5lIHgxPSI5MCIgeTE9IjEyMCIgeDI9IjE3MCIgeTI9IjcwIi8+CiAgICAgIDxsaW5lIHgxPSIxNzAiIHkxPSI3MCIgeDI9IjI1MCIgeTI9IjEyMCIvPgogICAgICA8bGluZSB4MT0iMjUwIiB5MT0iMTIwIiB4Mj0iMjUwIiB5Mj0iMjEwIi8+CiAgICAgIDxsaW5lIHgxPSIyNTAiIHkxPSIyMTAiIHgyPSIxNzAiIHkyPSIyNjAiLz4KICAgICAgPGxpbmUgeDE9IjE3MCIgeTE9IjI2MCIgeDI9IjkwIiB5Mj0iMjEwIi8+CiAgICAgIDxsaW5lIHgxPSI5MCIgeTE9IjIxMCIgeDI9IjkwIiB5Mj0iMTIwIi8+CiAgICAgIDxsaW5lIHgxPSIyNTAiIHkxPSIxMjAiIHgyPSIzMzAiIHkyPSI4MCIvPgogICAgICA8bGluZSB4MT0iMjUwIiB5MT0iMjEwIiB4Mj0iMzM1IiB5Mj0iMjQ1Ii8+CiAgICAgIDxsaW5lIHgxPSIxNzAiIHkxPSIyNjAiIHgyPSIxODAiIHkyPSIzNDUiLz4KICAgIDwvZz4KICAgIDxjaXJjbGUgY3g9IjkwIiBjeT0iMTIwIiByPSIxNCIgZmlsbD0idXJsKCNoeWRyb2dlbkEpIiBzdHJva2U9IiNCOUJFQzIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICA8Y2lyY2xlIGN4PSIxNzAiIGN5PSI3MCIgcj0iMTkiIGZpbGw9InVybCgjb3h5Z2VuQSkiLz4KICAgIDxjaXJjbGUgY3g9IjI1MCIgY3k9IjEyMCIgcj0iMTYiIGZpbGw9InVybCgjY2FyYm9uQSkiLz4KICAgIDxjaXJjbGUgY3g9IjI1MCIgY3k9IjIxMCIgcj0iMTYiIGZpbGw9InVybCgjY2FyYm9uQSkiLz4KICAgIDxjaXJjbGUgY3g9IjE3MCIgY3k9IjI2MCIgcj0iMTkiIGZpbGw9InVybCgjb3h5Z2VuQSkiLz4KICAgIDxjaXJjbGUgY3g9IjkwIiBjeT0iMjEwIiByPSIxNCIgZmlsbD0idXJsKCNoeWRyb2dlbkEpIiBzdHJva2U9IiNCOUJFQzIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICA8Y2lyY2xlIGN4PSIzMzAiIGN5PSI4MCIgcj0iMTIiIGZpbGw9InVybCgjaHlkcm9nZW5BKSIgc3Ryb2tlPSIjQjlCRUMyIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPGNpcmNsZSBjeD0iMzM1IiBjeT0iMjQ1IiByPSIxNCIgZmlsbD0idXJsKCNveHlnZW5BKSIvPgogICAgPGNpcmNsZSBjeD0iMTgwIiBjeT0iMzQ1IiByPSIxMiIgZmlsbD0idXJsKCNoeWRyb2dlbkEpIiBzdHJva2U9IiNCOUJFQzIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPC9nPgo8L3N2Zz4K"),
+            url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjAgMzIwIiBmaWxsPSJub25lIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iY2FyYm9uQiIgY3g9IjMyJSIgY3k9IjI2JSIgcj0iNzIlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzZFNkU2RSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjU1JSIgc3RvcC1jb2xvcj0iIzJCMkIyQiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwQjBCMEIiLz4KICAgIDwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9Im94eWdlbkIiIGN4PSIzMiUiIGN5PSIyNiUiIHI9IjcyJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNFQThCODQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiNDMjNCMkUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNzExRTE1Ii8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJoeWRyb2dlbkIiIGN4PSIzMiUiIGN5PSIyNiUiIHI9IjcyJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGRkZGRkYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI2MCUiIHN0b3AtY29sb3I9IiNFRUYwRjEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjQzlDREQwIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyb2RCIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0Q4REFEQyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2RDcyNzUiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8ZmlsdGVyIGlkPSJzaGFkb3dCIiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjYiIHN0ZERldmlhdGlvbj0iOCIgZmxvb2QtY29sb3I9IiMxQTFBMUEiIGZsb29kLW9wYWNpdHk9IjAuMzUiLz4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8ZyBmaWx0ZXI9InVybCgjc2hhZG93QikiPgogICAgPGcgc3Ryb2tlPSJ1cmwoI3JvZEIpIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+CiAgICAgIDxsaW5lIHgxPSI2MCIgeTE9IjkwIiB4Mj0iMTQwIiB5Mj0iNjAiLz4KICAgICAgPGxpbmUgeDE9IjE0MCIgeTE9IjYwIiB4Mj0iMjAwIiB5Mj0iMTIwIi8+CiAgICAgIDxsaW5lIHgxPSIyMDAiIHkxPSIxMjAiIHgyPSIxODAiIHkyPSIyMDAiLz4KICAgICAgPGxpbmUgeDE9IjE4MCIgeTE9IjIwMCIgeDI9IjEwMCIgeTI9IjIyMCIvPgogICAgICA8bGluZSB4MT0iMTAwIiB5MT0iMjIwIiB4Mj0iNjAiIHkyPSI5MCIvPgogICAgICA8bGluZSB4MT0iMjAwIiB5MT0iMTIwIiB4Mj0iMjgwIiB5Mj0iMTAwIi8+CiAgICA8L2c+CiAgICA8Y2lyY2xlIGN4PSI2MCIgY3k9IjkwIiByPSIxMyIgZmlsbD0idXJsKCNoeWRyb2dlbkIpIiBzdHJva2U9IiNCOUJFQzIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICA8Y2lyY2xlIGN4PSIxNDAiIGN5PSI2MCIgcj0iMTgiIGZpbGw9InVybCgjb3h5Z2VuQikiLz4KICAgIDxjaXJjbGUgY3g9IjIwMCIgY3k9IjEyMCIgcj0iMTUiIGZpbGw9InVybCgjY2FyYm9uQikiLz4KICAgIDxjaXJjbGUgY3g9IjE4MCIgY3k9IjIwMCIgcj0iMTMiIGZpbGw9InVybCgjaHlkcm9nZW5CKSIgc3Ryb2tlPSIjQjlCRUMyIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMjIwIiByPSIxOCIgZmlsbD0idXJsKCNveHlnZW5CKSIvPgogICAgPGNpcmNsZSBjeD0iMjgwIiBjeT0iMTAwIiByPSIxMyIgZmlsbD0idXJsKCNoeWRyb2dlbkIpIiBzdHJva2U9IiNCOUJFQzIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPC9nPgo8L3N2Zz4K");
+    }
+    [data-testid="stAppViewContainer"] > .main .block-container{
+        position:relative;
+        z-index:1;
+    }
     @media (max-width:700px){
-        .bg-molecule .mol-a{ width:44%; bottom:-16%; right:-16%; }
-        .bg-molecule .mol-b{ display:none; }
+        [data-testid="stAppViewContainer"] > .main::before{
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgMzgwIiBmaWxsPSJub25lIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iY2FyYm9uQSIgY3g9IjMyJSIgY3k9IjI2JSIgcj0iNzIlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzZFNkU2RSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjU1JSIgc3RvcC1jb2xvcj0iIzJCMkIyQiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwQjBCMEIiLz4KICAgIDwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9Im94eWdlbkEiIGN4PSIzMiUiIGN5PSIyNiUiIHI9IjcyJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNFQThCODQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiNDMjNCMkUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNzExRTE1Ii8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJoeWRyb2dlbkEiIGN4PSIzMiUiIGN5PSIyNiUiIHI9IjcyJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGRkZGRkYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI2MCUiIHN0b3AtY29sb3I9IiNFRUYwRjEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjQzlDREQwIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyb2RBIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0Q4REFEQyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2RDcyNzUiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8ZmlsdGVyIGlkPSJzaGFkb3dBIiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjYiIHN0ZERldmlhdGlvbj0iOCIgZmxvb2QtY29sb3I9IiMxQTFBMUEiIGZsb29kLW9wYWNpdHk9IjAuMzUiLz4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8ZyBmaWx0ZXI9InVybCgjc2hhZG93QSkiPgogICAgPGcgc3Ryb2tlPSJ1cmwoI3JvZEEpIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+CiAgICAgIDxsaW5lIHgxPSI5MCIgeTE9IjEyMCIgeDI9IjE3MCIgeTI9IjcwIi8+CiAgICAgIDxsaW5lIHgxPSIxNzAiIHkxPSI3MCIgeDI9IjI1MCIgeTI9IjEyMCIvPgogICAgICA8bGluZSB4MT0iMjUwIiB5MT0iMTIwIiB4Mj0iMjUwIiB5Mj0iMjEwIi8+CiAgICAgIDxsaW5lIHgxPSIyNTAiIHkxPSIyMTAiIHgyPSIxNzAiIHkyPSIyNjAiLz4KICAgICAgPGxpbmUgeDE9IjE3MCIgeTE9IjI2MCIgeDI9IjkwIiB5Mj0iMjEwIi8+CiAgICAgIDxsaW5lIHgxPSI5MCIgeTE9IjIxMCIgeDI9IjkwIiB5Mj0iMTIwIi8+CiAgICAgIDxsaW5lIHgxPSIyNTAiIHkxPSIxMjAiIHgyPSIzMzAiIHkyPSI4MCIvPgogICAgICA8bGluZSB4MT0iMjUwIiB5MT0iMjEwIiB4Mj0iMzM1IiB5Mj0iMjQ1Ii8+CiAgICAgIDxsaW5lIHgxPSIxNzAiIHkxPSIyNjAiIHgyPSIxODAiIHkyPSIzNDUiLz4KICAgIDwvZz4KICAgIDxjaXJjbGUgY3g9IjkwIiBjeT0iMTIwIiByPSIxNCIgZmlsbD0idXJsKCNoeWRyb2dlbkEpIiBzdHJva2U9IiNCOUJFQzIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICA8Y2lyY2xlIGN4PSIxNzAiIGN5PSI3MCIgcj0iMTkiIGZpbGw9InVybCgjb3h5Z2VuQSkiLz4KICAgIDxjaXJjbGUgY3g9IjI1MCIgY3k9IjEyMCIgcj0iMTYiIGZpbGw9InVybCgjY2FyYm9uQSkiLz4KICAgIDxjaXJjbGUgY3g9IjI1MCIgY3k9IjIxMCIgcj0iMTYiIGZpbGw9InVybCgjY2FyYm9uQSkiLz4KICAgIDxjaXJjbGUgY3g9IjE3MCIgY3k9IjI2MCIgcj0iMTkiIGZpbGw9InVybCgjb3h5Z2VuQSkiLz4KICAgIDxjaXJjbGUgY3g9IjkwIiBjeT0iMjEwIiByPSIxNCIgZmlsbD0idXJsKCNoeWRyb2dlbkEpIiBzdHJva2U9IiNCOUJFQzIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICA8Y2lyY2xlIGN4PSIzMzAiIGN5PSI4MCIgcj0iMTIiIGZpbGw9InVybCgjaHlkcm9nZW5BKSIgc3Ryb2tlPSIjQjlCRUMyIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPGNpcmNsZSBjeD0iMzM1IiBjeT0iMjQ1IiByPSIxNCIgZmlsbD0idXJsKCNveHlnZW5BKSIvPgogICAgPGNpcmNsZSBjeD0iMTgwIiBjeT0iMzQ1IiByPSIxMiIgZmlsbD0idXJsKCNoeWRyb2dlbkEpIiBzdHJva2U9IiNCOUJFQzIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPC9nPgo8L3N2Zz4K");
+            background-position: right -80px bottom -80px;
+            background-size: clamp(220px,44vw,340px) auto;
+        }
     }
 
     div[data-testid="stTextInput"] div[data-baseweb="input"]{
@@ -269,99 +283,6 @@ st.markdown(
         padding-left:44px !important;
     }
     </style>
-
-    <div class="bg-molecule" aria-hidden="true">
-      <svg class="mol-a" viewBox="0 0 440 380" fill="none">
-        <defs>
-          <radialGradient id="carbonA" cx="32%" cy="26%" r="72%">
-            <stop offset="0%" stop-color="#6E6E6E"/>
-            <stop offset="55%" stop-color="#2B2B2B"/>
-            <stop offset="100%" stop-color="#0B0B0B"/>
-          </radialGradient>
-          <radialGradient id="oxygenA" cx="32%" cy="26%" r="72%">
-            <stop offset="0%" stop-color="#EA8B84"/>
-            <stop offset="55%" stop-color="#C23B2E"/>
-            <stop offset="100%" stop-color="#711E15"/>
-          </radialGradient>
-          <radialGradient id="hydrogenA" cx="32%" cy="26%" r="72%">
-            <stop offset="0%" stop-color="#FFFFFF"/>
-            <stop offset="60%" stop-color="#EEF0F1"/>
-            <stop offset="100%" stop-color="#C9CDD0"/>
-          </radialGradient>
-          <linearGradient id="rodA" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#D8DADC"/>
-            <stop offset="100%" stop-color="#6D7275"/>
-          </linearGradient>
-          <filter id="shadowA" x="-30%" y="-30%" width="160%" height="160%">
-            <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1A1A1A" flood-opacity="0.35"/>
-          </filter>
-        </defs>
-        <g filter="url(#shadowA)">
-          <g stroke="url(#rodA)" stroke-width="6" stroke-linecap="round">
-            <line x1="90" y1="120" x2="170" y2="70"/>
-            <line x1="170" y1="70" x2="250" y2="120"/>
-            <line x1="250" y1="120" x2="250" y2="210"/>
-            <line x1="250" y1="210" x2="170" y2="260"/>
-            <line x1="170" y1="260" x2="90" y2="210"/>
-            <line x1="90" y1="210" x2="90" y2="120"/>
-            <line x1="250" y1="120" x2="330" y2="80"/>
-            <line x1="250" y1="210" x2="335" y2="245"/>
-            <line x1="170" y1="260" x2="180" y2="345"/>
-          </g>
-          <circle cx="90" cy="120" r="14" fill="url(#hydrogenA)" stroke="#B9BEC2" stroke-width="1.5"/>
-          <circle cx="170" cy="70" r="19" fill="url(#oxygenA)"/>
-          <circle cx="250" cy="120" r="16" fill="url(#carbonA)"/>
-          <circle cx="250" cy="210" r="16" fill="url(#carbonA)"/>
-          <circle cx="170" cy="260" r="19" fill="url(#oxygenA)"/>
-          <circle cx="90" cy="210" r="14" fill="url(#hydrogenA)" stroke="#B9BEC2" stroke-width="1.5"/>
-          <circle cx="330" cy="80" r="12" fill="url(#hydrogenA)" stroke="#B9BEC2" stroke-width="1.5"/>
-          <circle cx="335" cy="245" r="14" fill="url(#oxygenA)"/>
-          <circle cx="180" cy="345" r="12" fill="url(#hydrogenA)" stroke="#B9BEC2" stroke-width="1.5"/>
-        </g>
-      </svg>
-      <svg class="mol-b" viewBox="0 0 360 320" fill="none">
-        <defs>
-          <radialGradient id="carbonB" cx="32%" cy="26%" r="72%">
-            <stop offset="0%" stop-color="#6E6E6E"/>
-            <stop offset="55%" stop-color="#2B2B2B"/>
-            <stop offset="100%" stop-color="#0B0B0B"/>
-          </radialGradient>
-          <radialGradient id="oxygenB" cx="32%" cy="26%" r="72%">
-            <stop offset="0%" stop-color="#EA8B84"/>
-            <stop offset="55%" stop-color="#C23B2E"/>
-            <stop offset="100%" stop-color="#711E15"/>
-          </radialGradient>
-          <radialGradient id="hydrogenB" cx="32%" cy="26%" r="72%">
-            <stop offset="0%" stop-color="#FFFFFF"/>
-            <stop offset="60%" stop-color="#EEF0F1"/>
-            <stop offset="100%" stop-color="#C9CDD0"/>
-          </radialGradient>
-          <linearGradient id="rodB" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#D8DADC"/>
-            <stop offset="100%" stop-color="#6D7275"/>
-          </linearGradient>
-          <filter id="shadowB" x="-30%" y="-30%" width="160%" height="160%">
-            <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1A1A1A" flood-opacity="0.35"/>
-          </filter>
-        </defs>
-        <g filter="url(#shadowB)">
-          <g stroke="url(#rodB)" stroke-width="6" stroke-linecap="round">
-            <line x1="60" y1="90" x2="140" y2="60"/>
-            <line x1="140" y1="60" x2="200" y2="120"/>
-            <line x1="200" y1="120" x2="180" y2="200"/>
-            <line x1="180" y1="200" x2="100" y2="220"/>
-            <line x1="100" y1="220" x2="60" y2="90"/>
-            <line x1="200" y1="120" x2="280" y2="100"/>
-          </g>
-          <circle cx="60" cy="90" r="13" fill="url(#hydrogenB)" stroke="#B9BEC2" stroke-width="1.5"/>
-          <circle cx="140" cy="60" r="18" fill="url(#oxygenB)"/>
-          <circle cx="200" cy="120" r="15" fill="url(#carbonB)"/>
-          <circle cx="180" cy="200" r="13" fill="url(#hydrogenB)" stroke="#B9BEC2" stroke-width="1.5"/>
-          <circle cx="100" cy="220" r="18" fill="url(#oxygenB)"/>
-          <circle cx="280" cy="100" r="13" fill="url(#hydrogenB)" stroke="#B9BEC2" stroke-width="1.5"/>
-        </g>
-      </svg>
-    </div>
     """,
     unsafe_allow_html=True,
 )
