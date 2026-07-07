@@ -255,12 +255,15 @@ st.markdown(
         border-color:#0EA5A4;
     }
 
+    html, body, [data-testid="stAppViewContainer"]{
+        background-color:#EFF7F6 !important;
+    }
     [data-testid="stAppViewContainer"] > .main{
         position:relative;
     }
     [data-testid="stAppViewContainer"] > .main::before{
         content:"";
-        position:absolute;
+        position:fixed;
         inset:0;
         z-index:0;
         pointer-events:none;
